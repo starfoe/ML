@@ -24,8 +24,10 @@ def main():
         category = blob.name.split('/')[0]
         name_list.append(filename_tmp)
         cate_list.append(category)
-    df = pd.DataFrame({'file_name': name_list, 'category': cate_list})
-    df.to_csv(output_filename, header=False, index=False, sep=',')
+    df = pd.DataFrame({'category': cate_list, 'file_name': name_list})
+    columns = ['file_name', 'category']
+    df.to_csv(output_filename, header=False, index=False, sep=',', columns=columns)
+    print(df.head())
 
 
 if __name__ == '__main__':
